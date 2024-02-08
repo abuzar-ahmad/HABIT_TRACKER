@@ -5,8 +5,7 @@ This project is a habit tracker used to track the habits of of the User on daily
 To run this application on your local machine, please follow these steps:
 
 Clone this repository using the following command:
-https://github.com/ayush2342/Habit-Tracker.git
-
+](https://github.com/abuzar-ahmad/HABIT_TRACKER)
 Install the required dependencies using the following command:
 $ npm install 
 
