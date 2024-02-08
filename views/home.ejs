@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/css/home.css">
+
+
+<div class="container">
+<h1>Habits</h1>
+
+<div class="habit_input">
+    <form class="dropdown" action="/habits/createHabit" method="post" id="select-form">
+        <select id="habit-dropdown" >
+            <option value="">Predefined habits</option>
+            <option value="Exercise">Exercise</option>
+            <option value="Read">Read</option>
+            <option value="Meditate">Meditate</option>
+        </select>
+    </form>
+    <form action="/habits/createHabit" method="post" id="type-form">
+        <input type="text" id="custom_meal" name="custom_meal" placeholder="Add Custom Habit" required>
+        <button type="submit" id="add-custom-meal">Add Habit</button>
+    </form>
+    <button type="button" id="weekly-view"><a href="/habits/weeklyView">Show Weekly View</a></button>
+</div>
+
+<div class="all_habits">
+    <%for(let habit of habits){%>
+    <div class="each-habit">
+        <%for(let habitstatus of habit.status){%>
+        <%if(habitstatus.date==currdate){%>
+        <%var status=habitstatus.datestatus%>
+        <%break}}%>
+        <h4><%=habit.name%></h4>
+        <select name="habit-status" class="habit-status-dropdown" id=<%=habit._id%>>
+            <option value="Not Started" <% if (status === "Not Started") { %>selected<% } %>>Not Started</option>
+            <option value="Done" <% if (status === "Done") { %>selected<% } %>>Done</option>
+            <option value="Not Done" <% if (status === "Not Done") { %>selected<% } %>>Not Done</option>
+        </select>
+        <button type="button" id="<%=habit._id%>"><a href="/habits/deleteHabit/<%=habit._id%>">Delete Habit</a></button>
+    </div>
+    <%}%>
+</div>
+
+</div>
+
+
+<script>
+    $('.habit-status-dropdown').on('change',function()
+{
+
+    let id=this.id
+    let status=$(this).val();
+
+    window.location.href = `http://localhost:9000/habits/toggleStatus?id=${id}&status=${status}`;
+})
+    const habitDropdown = document.getElementById('habit-dropdown');
+    const customHabitInput = document.getElementById('custom_meal');
+    habitDropdown.addEventListener('change', function () {
+        customHabitInput.value = habitDropdown.value;
+    });
+</script>

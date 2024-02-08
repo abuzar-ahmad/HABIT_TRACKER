@@ -1,0 +1,77 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(106,208,211,1) 61%, rgba(0,212,255,1) 100%);
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 210px;
+}
+
+.habit_input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+select {
+  padding: 8px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+input {
+  border: none;
+  text-align: center;
+  padding: 10px 0px;
+  font-size: 15px;
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+a {
+  text-decoration: none;
+}
+
+#type-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.all_habits {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.each-habit {
+  border: 2px solid gray;
+  padding: 0px 30px 20px 30px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(231,233,148,1) 100%);
+}
